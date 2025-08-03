@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://yuxl8hg7rmds"]
+
+[ext_resource type="Shader" uid="uid://c5jfshmew2qm8" path="res://Shaders/TestScreenShader.gdshader" id="1_74yx1"]
+[ext_resource type="Texture2D" uid="uid://dxb6wr1r452am" path="res://Art/white.png" id="2_1skfw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04el0"]
+albedo_color = Color(0, 0.624932, 0.887077, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_74yx1"]
+material = SubResource("StandardMaterial3D_04el0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1skfw"]
+albedo_color = Color(0.798669, 0.315468, 0.110467, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_371ul"]
+material = SubResource("StandardMaterial3D_1skfw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ne7lk"]
+albedo_color = Color(2.23808e-06, 0.59426, 0.145858, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_y33iw"]
+material = SubResource("StandardMaterial3D_ne7lk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rp6s4"]
+albedo_color = Color(0.719419, 0.00216877, 0.914998, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_82fdy"]
+material = SubResource("StandardMaterial3D_rp6s4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1skfw"]
+shader = ExtResource("1_74yx1")
+shader_parameter/tint_color = Vector3(0, 0, 1)
+shader_parameter/tint_strength = 0.485
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Torus" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_74yx1")
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79388, 0, 0)
+mesh = SubResource("BoxMesh_371ul")
+
+[node name="Sphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.95897)
+mesh = SubResource("SphereMesh_y33iw")
+
+[node name="Cylinder" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85043, 0, 1.33639)
+mesh = SubResource("CylinderMesh_82fdy")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.605127, 0.3339, -0.722725, -1.82504e-08, 0.907799, 0.419405, 0.796129, -0.253793, 0.549334, -1.32092, 1.52151, 2.82096)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.763638, 0.645644, 0, -0.645644, -0.763638, 0, 2.90652, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+material = SubResource("ShaderMaterial_1skfw")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1skfw")
