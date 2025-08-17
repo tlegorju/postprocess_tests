@@ -29,8 +29,13 @@ material = SubResource("StandardMaterial3D_rp6s4")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1skfw"]
 shader = ExtResource("1_74yx1")
+shader_parameter/_useMixTint = false
+shader_parameter/_useMultTint = false
+shader_parameter/_useLengthTint = false
+shader_parameter/_useAngleColFilter = false
+shader_parameter/_useInvertCol = false
 shader_parameter/_tint_color = Vector3(1, 0, 0)
-shader_parameter/_tint_strength = 0.57
+shader_parameter/_tint_strength = 1.05
 shader_parameter/_brightness = -0.09
 shader_parameter/_saturation = 3.865
 shader_parameter/_contrast = 2.36
